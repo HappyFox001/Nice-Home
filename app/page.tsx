@@ -1,101 +1,107 @@
-import Image from "next/image";
+'use client';
+
+import Link from 'next/link'
+import Image from 'next/image'
+import Loading from './components/Loading'
+import { useState, useEffect } from 'react'
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const [loading, setLoading] = useState(true);
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+  }, []);
+
+  return (
+    <>
+      <Loading loading={loading} />
+      <div className="main">
+        <div className="left">
+          <div className="left-logo"></div>
+          <div className="left-place">
+            <div className="left-place-word">Wuhan University</div>
+            <div className="left-place-word">Full Stack Engineer</div>
+          </div>
+          <div className="left-tag">
+            <div className="timeline">
+              <div className="timeline-item"><span>2022</span>：&emsp;&emsp;University Life!</div>
+              <div className="timeline-item"><span>2023</span>：&emsp;&emsp;Web3 Journey!</div>
+              <div className="timeline-item"><span>2024</span>：&emsp;&emsp;Building the Future!</div>
+              <div className="timeline-item"><span>2025</span>：&emsp;&emsp;Creating Something Bigger!</div>
+            </div>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
+        
+        <div className="right">
+          <div className="right-header">
+            <div className="right-welcome">
+              <p className="right-title">Welcome to 0xhacker's World</p>
+            </div>
+            <div className="right-description">⏳&ensp;<span>Geek Enthusiast and Web3 Idealist</span></div>
+            <div className="right-description">📝&ensp;<span>Do something cool and change the word!</span></div>
+            <div className="right-about">
+              <a className="right-icon" href="https://github.com/" target="_blank" rel="noopener noreferrer">
+                <Image src="/github.svg" alt="github" width={40} height={40} />
+              </a>
+              <a className="right-icon" href="https://im.qq.com/" target="_blank" rel="noopener noreferrer">
+                <Image src="/qq.svg" alt="qq" width={40} height={40} />
+              </a>
+              <a className="right-icon" href="https://discord.com/" target="_blank" rel="noopener noreferrer">
+                <Image src="/discord.svg" alt="discord" width={40} height={40} />
+              </a>
+            </div>
+          </div>
+          
+          <div className="right-content">
+            <div className="right-menu">
+              <span className="right-title">I SAY</span>
+            </div>
+            <div className="right-project">
+              <Link href="/succinct" className="project-link project-item">
+                <div className="project-item-left">
+                  <h1>About</h1>
+                  <p>Unpolluted Mind</p>
+                </div>
+                <div className="project-item-right">
+                  <Image src="/succinct.svg" alt="" width={50} height={50} />
+                </div>
+              </Link>
+              
+              <Link href="/blog" className="project-link project-item">
+                <div className="project-item-left">
+                  <h1>Blog</h1>
+                  <p>Uncontaminated Territory</p>
+                </div>
+                <div className="project-item-right">
+                  <Image src="/blog.svg" alt="" width={50} height={50} />
+                </div>
+              </Link>
+              
+              <Link href="/essay" className="project-link project-item">
+                <div className="project-item-left">
+                  <h1>Essays</h1>
+                  <p>Uninhabited Wilderness</p>
+                </div>
+                <div className="project-item-right">
+                  <Image src="/write.svg" alt="" width={50} height={50} />
+                </div>
+              </Link>
+              
+              <Link href="/project" className="project-link project-item">
+                <div className="project-item-left">
+                  <h1>Projects</h1>
+                  <p>Unharmed Edifice</p>
+                </div>
+                <div className="project-item-right">
+                  <Image src="/project.svg" alt="" width={50} height={50} />
+                </div>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
+  )
 }
