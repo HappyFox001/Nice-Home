@@ -37,7 +37,7 @@ export default function Home() {
         <div className="right">
           <div className="right-header">
             <div className="right-welcome">
-              <p className="right-title">Welcome to 0xhacker's World</p>
+              <p className="right-title">Welcome to 0xhacker&apos;s World</p>
             </div>
             <div className="right-description">⏳&ensp;<span>Geek Enthusiast and Web3 Idealist</span></div>
             <div className="right-description">📝&ensp;<span>Do something cool and change the word!</span></div>
