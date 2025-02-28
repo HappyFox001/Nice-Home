@@ -1,6 +1,5 @@
 'use client'
 
-import { useState } from 'react'
 import { motion } from 'framer-motion'
 
 const stats = [
@@ -28,8 +27,6 @@ const reports = [
 ]
 
 export default function BlogPage() {
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
-
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-black p-8">
       {/* 头部区域 */}
@@ -43,7 +40,7 @@ export default function BlogPage() {
 
         {/* 统计数据 */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
-          {stats.map((stat, index) => (
+          {stats.map((stat) => (
             <div 
               key={stat.label}
               className="bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 border border-gray-700 hover:border-gray-600 transition-all"
@@ -57,13 +54,11 @@ export default function BlogPage() {
         {/* 研究报告列表 */}
         <h2 className="text-2xl font-semibold mb-8 text-gray-200">Selected Research Reports</h2>
         <div className="grid gap-8">
-          {reports.map((report, index) => (
+          {reports.map((report) => (
             <motion.div
               key={report.title}
               className="bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 border border-gray-700 hover:border-gray-600 transition-all cursor-pointer"
               whileHover={{ scale: 1.02 }}
-              onHoverStart={() => setHoveredIndex(index)}
-              onHoverEnd={() => setHoveredIndex(null)}
             >
               <div className="flex justify-between items-start">
                 <div>

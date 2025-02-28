@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 
 const constructionAnimation = {
   hidden: { opacity: 0, y: 20 },
@@ -71,7 +72,7 @@ export default function ProjectPage() {
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {projects.map((project, index) => (
+            {projects.map((project) => (
               <motion.div
                 key={project.title}
                 className="bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 border border-gray-700 hover:border-blue-500/50 transition-all"
@@ -81,9 +82,11 @@ export default function ProjectPage() {
                 <div className="flex flex-col h-full">
                   <div className="w-full h-48 bg-gray-700/50 rounded-lg mb-4 overflow-hidden">
                     {project.image ? (
-                      <img
-                        src={`${project.image}`}
+                      <Image
+                        src={`/${project.image}`}
                         alt={project.title}
+                        width={500}
+                        height={300}
                         className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                       />
                     ) : (
