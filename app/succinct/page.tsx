@@ -15,12 +15,12 @@ const skills = [
 ]
 
 const projects = [
-  { name: "Personal Website", icon: "🌍", status: "已完成" },
-  { name: "Trading Bot", icon: "🤖", status: "开发中" },
-  { name: "On-chain ZK Casino", icon: "🎰", status: "规划中" },
-  { name: "Natural Language Trading", icon: "🗣️", status: "概念验证" },
-  { name: "Smart Car Navigation", icon: "🚗", status: "已完成" },
-  { name: "BTC Trading Risk Detection", icon: "⚡", status: "已完成" }
+  { name: "Personal Website", icon: "🌍", status: "Finished" },
+  { name: "Trading Bot", icon: "🤖", status: "Developing" },
+  { name: "On-chain ZK Casino", icon: "🎰", status: "Planning" },
+  { name: "Natural Language Trading", icon: "🗣️", status: "Concept" },
+  { name: "Smart Car Navigation", icon: "🚗", status: "Finished" },
+  { name: "BTC Trading Risk Detection", icon: "⚡", status: "Finished" }
 ]
 
 const fadeInUp = {
