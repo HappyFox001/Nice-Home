@@ -1,0 +1,24 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .matrix { font-family: monospace; font-size: 4px; fill: #0f0; }
+    .hood { fill: #222; }
+    .face { fill: #000; }
+    .glasses { fill: #0f0; opacity: 0.7; }
+  </style>
+  <rect width="100%" height="100%" fill="#000"/>
+  <text x="5" y="10" class="matrix">01001001010</text>
+  <text x="5" y="15" class="matrix">10110101101</text>
+  <text x="5" y="20" class="matrix">01011010010</text>
+  <text x="5" y="85" class="matrix">10110101101</text>
+  <text x="5" y="90" class="matrix">01011010010</text>
+  <text x="5" y="95" class="matrix">10101001010</text>
+  
+  <!-- 兜帽 -->
+  <path class="hood" d="M30,40 C30,25 70,25 70,40 L75,65 C75,80 25,80 25,65 L30,40"/>
+  
+  <!-- 面部阴影 -->
+  <ellipse class="face" cx="50" cy="50" rx="15" ry="20"/>
+  
+  <!-- 黑客眼镜 -->
+  <rect class="glasses" x="38" y="45" width="24" height="8" rx="2"/>
+</svg>

@@ -1,8 +1,17 @@
 export default function EssayPage() {
   return (
-    <div className="p-8">
-      <h1 className="text-3xl font-bold mb-4">Essays</h1>
-      <p>Still in Building </p>
+    <div className="essay-container">
+      <iframe 
+        src="/eaasy/Bitcoin_Illegal_Transaction_Detection_Method_Based_on_Graph_Neural_Networks.pdf"
+        width="100%"
+        height="100%"
+        style={{ 
+          border: 'none',
+          maxWidth: '1200px',
+          margin: '2rem auto',
+          minHeight: '800px'
+        }}
+      />
     </div>
   )
 }
