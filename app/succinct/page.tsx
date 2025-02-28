@@ -1,7 +1,6 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import Image from 'next/image'
 
 const skills = [
   { name: "Vue.js", icon: "⚡", description: "Frontend Development" },
@@ -12,15 +11,6 @@ const skills = [
   { name: "C", icon: "💻", description: "Low Level Programming" },
   { name: "Solidity", icon: "📊", description: "Smart Contracts" },
   { name: "Supabase", icon: "🗃️", description: "Database & Backend" }
-]
-
-const projects = [
-  { name: "Personal Website", icon: "🌍", status: "Finished" },
-  { name: "Trading Bot", icon: "🤖", status: "Developing" },
-  { name: "On-chain ZK Casino", icon: "🎰", status: "Planning" },
-  { name: "Natural Language Trading", icon: "🗣️", status: "Concept" },
-  { name: "Smart Car Navigation", icon: "🚗", status: "Finished" },
-  { name: "BTC Trading Risk Detection", icon: "⚡", status: "Finished" }
 ]
 
 const experiences = [
@@ -42,7 +32,7 @@ const fadeInUp = {
   visible: { 
     opacity: 1, 
     y: 0,
-    transition: { duration: 0.6, ease: "easeOut" }
+    transition: { duration: 0.8, ease: "easeOut" }
   }
 }
 
@@ -56,30 +46,39 @@ export default function SuccinctPage() {
           variants={fadeInUp}
           className="text-center py-20"
         >
-          {/* Hero Section */}
-          <motion.div
-            initial={{ scale: 0.5, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.5 }}
-            className="inline-block mb-6"
-          >
-            <Image src="/hacker.svg" alt="" width={100} height={100} />
-          </motion.div>
-          <h1 className="text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400">
-            0xhacker
+          <h1 className="text-5xl font-bold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400">
+            About Me
           </h1>
+          
+          <div className="relative w-24 h-24 mx-auto mb-8">
+            <motion.div
+              animate={{
+                rotate: 360,
+              }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                ease: "linear"
+              }}
+              className="w-full h-full"
+            >
+              <div className="absolute inset-0 border-t-4 border-blue-400 rounded-full"></div>
+            </motion.div>
+          </div>
+
           <p className="text-gray-300 text-xl mb-4">
-            Full Stack Engineer | Solidity Smart Contract Developer
+            0xhacker | Full Stack Engineer
           </p>
           <p className="text-gray-400 mb-16 max-w-2xl mx-auto">
             Breaking free from exam-oriented education, building innovative solutions in Web3
           </p>
 
-          {/* About Section */}
+          {/* Education & Goals */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
             <motion.div 
-              className="bg-gray-800/50 backdrop-blur-sm rounded-xl p-8 border border-gray-700"
+              className="bg-gray-800/50 backdrop-blur-sm rounded-xl p-8 border border-gray-700 hover:border-blue-500/50 transition-all"
               variants={fadeInUp}
+              whileHover={{ scale: 1.02 }}
             >
               <h2 className="text-2xl font-semibold text-gray-200 mb-6 text-left">🎓 Education</h2>
               <div className="text-left bg-gray-700/30 rounded-lg p-6">
@@ -98,8 +97,9 @@ export default function SuccinctPage() {
             </motion.div>
 
             <motion.div 
-              className="bg-gray-800/50 backdrop-blur-sm rounded-xl p-8 border border-gray-700"
+              className="bg-gray-800/50 backdrop-blur-sm rounded-xl p-8 border border-gray-700 hover:border-blue-500/50 transition-all"
               variants={fadeInUp}
+              whileHover={{ scale: 1.02 }}
             >
               <h2 className="text-2xl font-semibold text-gray-200 mb-6 text-left">🎯 Goals</h2>
               <div className="text-left bg-gray-700/30 rounded-lg p-6">
@@ -115,7 +115,10 @@ export default function SuccinctPage() {
                   <div className="flex items-center space-x-3">
                     <span className="text-2xl">🌐</span>
                     <p className="text-gray-300">
-                      <a href="https://0xhacker.dev/" className="text-blue-400 hover:text-blue-300 underline">
+                      <a href="https://0xhacker.dev/" 
+                         target="_blank"
+                         rel="noopener noreferrer"
+                         className="text-blue-400 hover:text-blue-300 underline">
                         0xhacker.dev
                       </a>
                     </p>
@@ -125,36 +128,43 @@ export default function SuccinctPage() {
             </motion.div>
           </div>
 
-          {/* Skills Section */}
+          {/* Skills Grid */}
           <motion.div 
-            className="bg-gray-800/50 backdrop-blur-sm rounded-xl p-8 border border-gray-700 mb-16"
+            className="bg-gray-800/50 backdrop-blur-sm rounded-xl p-8 border border-gray-700 hover:border-blue-500/50 transition-all mb-16"
             variants={fadeInUp}
+            whileHover={{ scale: 1.01 }}
           >
             <h2 className="text-2xl font-semibold text-gray-200 mb-6 text-left">💡 Skills</h2>
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
               {skills.map((skill) => (
-                <div 
+                <motion.div 
                   key={skill.name}
                   className="bg-gray-700/30 rounded-lg p-4 hover:bg-gray-700/50 transition-colors"
+                  whileHover={{ scale: 1.05 }}
                 >
                   <div className="flex items-center space-x-3 mb-2">
                     <span className="text-2xl">{skill.icon}</span>
                     <span className="text-gray-200">{skill.name}</span>
                   </div>
                   <p className="text-gray-400 text-sm ml-9">{skill.description}</p>
-                </div>
+                </motion.div>
               ))}
             </div>
           </motion.div>
 
-          {/* Experience Section */}
+          {/* Experience */}
           <motion.div 
-            className="bg-gray-800/50 backdrop-blur-sm rounded-xl p-8 border border-gray-700"
+            className="bg-gray-800/50 backdrop-blur-sm rounded-xl p-8 border border-gray-700 hover:border-blue-500/50 transition-all"
             variants={fadeInUp}
+            whileHover={{ scale: 1.01 }}
           >
             <h2 className="text-2xl font-semibold text-gray-200 mb-6 text-left">💼 Experience</h2>
             {experiences.map((exp) => (
-              <div key={exp.title} className="bg-gray-700/30 rounded-lg p-6">
+              <motion.div 
+                key={exp.title} 
+                className="bg-gray-700/30 rounded-lg p-6"
+                whileHover={{ scale: 1.02 }}
+              >
                 <div className="flex items-center justify-between mb-4">
                   <div>
                     <h3 className="text-xl text-blue-400">{exp.title}</h3>
@@ -171,7 +181,7 @@ export default function SuccinctPage() {
                     </div>
                   ))}
                 </div>
-              </div>
+              </motion.div>
             ))}
           </motion.div>
         </motion.div>
