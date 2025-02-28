@@ -30,7 +30,7 @@ const projects = [
     description: "A Deep Search Engine for Web3",
     tech: ["Python", "OpenAI","Ethereum"],
     status: "Still in progress",
-    url: "https://github.com/TreapGoGo/hackathon-2024-10-13"
+    url: "https://github.com/HappyFox001/DeepSearch"
   },
 ]
 
