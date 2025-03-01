@@ -1,24 +1,56 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 
 const skills = [
-  { name: "Vue.js", icon: "⚡", description: "Frontend Development" },
-  { name: "Next.js", icon: "🚀", description: "Full Stack Framework" },
-  { name: "Rust", icon: "⚙️", description: "Systems Programming" },
-  { name: "Go", icon: "🔵", description: "Backend Development" },
-  { name: "Python", icon: "🐍", description: "AI & Data Analysis" },
-  { name: "C", icon: "💻", description: "Low Level Programming" },
-  { name: "Solidity", icon: "📊", description: "Smart Contracts" },
-  { name: "Supabase", icon: "🗃️", description: "Database & Backend" }
+  { 
+    name: "Vue.js", 
+    icon: "/icons/vue.svg", 
+    description: "Frontend Development" 
+  },
+  { 
+    name: "Next.js", 
+    icon: "/icons/nextjs.svg", 
+    description: "Full Stack Framework" 
+  },
+  { 
+    name: "Rust", 
+    icon: "/icons/rust.svg", 
+    description: "Systems Programming" 
+  },
+  { 
+    name: "Go", 
+    icon: "/icons/go.svg", 
+    description: "Backend Development" 
+  },
+  { 
+    name: "Python", 
+    icon: "/icons/python.svg", 
+    description: "AI & Data Analysis" 
+  },
+  { 
+    name: "C", 
+    icon: "/icons/c.svg", 
+    description: "Low Level Programming" 
+  },
+  { 
+    name: "Solidity", 
+    icon: "/icons/solidity.svg", 
+    description: "Smart Contracts" 
+  },
+  { 
+    name: "Supabase", 
+    icon: "/icons/supabase.svg", 
+    description: "Database & Backend" 
+  }
 ]
 
 const experiences = [
   {
     title: "Investment Research Intern",
     company: "Trustless Lab",
-    period: "2023 - Present",
-    description: "Leading Web3 research and analysis",
+    period: "2024.06 - 2024.10",
     achievements: [
       "10+ Research Reports",
       "In-depth research on Web3 projects",
@@ -143,7 +175,15 @@ export default function SuccinctPage() {
                   whileHover={{ scale: 1.05 }}
                 >
                   <div className="flex items-center space-x-3 mb-2">
-                    <span className="text-2xl">{skill.icon}</span>
+                    <div className="w-6 h-6 flex items-center justify-center">
+                      <Image 
+                        src={skill.icon} 
+                        alt={skill.name} 
+                        width={24} 
+                        height={24} 
+                        className="w-full h-full object-contain" 
+                      />
+                    </div>
                     <span className="text-gray-200">{skill.name}</span>
                   </div>
                   <p className="text-gray-400 text-sm ml-9">{skill.description}</p>
@@ -151,8 +191,6 @@ export default function SuccinctPage() {
               ))}
             </div>
           </motion.div>
-
-          {/* Experience */}
           <motion.div 
             className="bg-gray-800/50 backdrop-blur-sm rounded-xl p-8 border border-gray-700 hover:border-blue-500/50 transition-all"
             variants={fadeInUp}
@@ -165,20 +203,47 @@ export default function SuccinctPage() {
                 className="bg-gray-700/30 rounded-lg p-6"
                 whileHover={{ scale: 1.02 }}
               >
-                <div className="flex items-center justify-between mb-4">
-                  <div>
-                    <h3 className="text-xl text-blue-400">{exp.title}</h3>
-                    <p className="text-gray-300">{exp.company}</p>
-                  </div>
-                  <span className="text-gray-400 text-sm">{exp.period}</span>
-                </div>
-                <p className="text-gray-400 mb-4">{exp.description}</p>
-                <div className="space-y-2">
-                  {exp.achievements.map((achievement, index) => (
-                    <div key={index} className="flex items-center space-x-2">
-                      <span className="text-blue-400">•</span>
-                      <p className="text-gray-300">{achievement}</p>
+                <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
+                  <div className="flex items-start space-x-4">
+                    <div className="flex flex-col items-center">
+                      <div className="w-1 h-16 bg-gradient-to-b from-blue-400 to-purple-400 rounded-full"></div>
                     </div>
+                    <div>
+                      <h3 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400">
+                        {exp.title}
+                      </h3>
+                      <div className="flex items-center space-x-2 mt-2">
+                        <svg className="w-4 h-4 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                        </svg>
+                        <p className="text-gray-300 text-lg">{exp.company}</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="mt-4 md:mt-0">
+                    <span className="px-4 py-2 rounded-full bg-blue-500/10 text-blue-400 text-sm border border-blue-500/20 flex items-center space-x-2">
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                      </svg>
+                      <span>{exp.period}</span>
+                    </span>
+                  </div>
+                </div>
+                <div className="ml-5 space-y-4 text-left">
+                  {exp.achievements.map((achievement, index) => (
+                    <motion.div 
+                      key={index} 
+                      className="flex items-start space-x-3 group pl-4"
+                      whileHover={{ x: 5 }}
+                      transition={{ type: "spring", stiffness: 300 }}
+                    >
+                      <span className="flex-shrink-0 w-2 h-2 rounded-full bg-blue-400 mt-2 group-hover:animate-ping"></span>
+                      <div className="flex-1">
+                        <p className="text-gray-300 group-hover:text-blue-400 transition-colors text-left">
+                          {achievement}
+                        </p>
+                      </div>
+                    </motion.div>
                   ))}
                 </div>
               </motion.div>
